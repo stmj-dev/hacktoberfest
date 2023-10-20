@@ -20,15 +20,15 @@ function checkNumber($number)
 {
     $ex_number = explode('.', $number);
 
-    if (isset($ex_number[1])) {
-        if ($ex_number[1] == 00) {
-            return number_format($number);
-        } else {
-            return floatDotFormat($number);
-        }
+    if (!isset($ex_number[1])) {
+        return number_format($number);
     }
-
-    return number_format($number);
+        
+    if ($ex_number[1] == 00) {
+        return number_format($number);
+    } 
+        
+    return floatDotFormat($number);
 }
 
 function replaceDot($amount)
